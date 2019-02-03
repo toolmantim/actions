@@ -19,7 +19,9 @@ curl \
   -X POST \
   -H "Authorization: Bearer ${BUILDKITE_API_ACCESS_TOKEN}" \
   "https://api.buildkite.com/v2/organizations/${BUILDKITE_ORG_SLUG}/pipelines/${BUILDKITE_PIPELINE_SLUG}/builds" \
-  -d "{
-    \"commit": "${GITHUB_SHA}\",
-    \"branch": "${GITHUB_REF}\"
-  }"
+  -d @- << JSON
+{
+  "commit": "${GITHUB_SHA}",
+  "branch": "${GITHUB_REF}"
+}
+JSON
