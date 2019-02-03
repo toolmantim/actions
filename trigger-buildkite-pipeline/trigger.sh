@@ -15,6 +15,8 @@ fi
 BUILDKITE_ORG_SLUG=$(echo "${BUILDKITE_PIPELINE}" | cut -d'/' -f1)
 BUILDKITE_PIPELINE_SLUG=$(echo "${BUILDKITE_PIPELINE}" | cut -d'/' -f2)
 
+BRANCH="${GITHUB_REF#"refs/heads/"}"
+
 curl \
   -X POST \
   -H "Authorization: Bearer ${BUILDKITE_API_ACCESS_TOKEN}" \
@@ -23,6 +25,6 @@ curl \
 {
   "message": "Test",
   "commit": "${GITHUB_SHA}",
-  "branch": "${GITHUB_REF}"
+  "branch": "${BRANCH}"
 }
 JSON
