@@ -23,7 +23,6 @@ curl \
   "https://api.buildkite.com/v2/organizations/${BUILDKITE_ORG_SLUG}/pipelines/${BUILDKITE_PIPELINE_SLUG}/builds" \
   -d @- << JSON
 {
-  "message": "Test",
   "commit": "${GITHUB_SHA}",
   "branch": "${BRANCH}"
 }
