@@ -42,11 +42,13 @@ JSON=$(
 
 RESPONSE=$(
   curl \
+    --silent \
     -X POST \
     -H "Authorization: Bearer ${BUILDKITE_API_ACCESS_TOKEN}" \
     "https://api.buildkite.com/v2/organizations/${ORG_SLUG}/pipelines/${PIPELINE_SLUG}/builds" \
     -d "$JSON"
 )
 
-echo "Created build:"
+echo ""
+echo "Build created:"
 echo "$RESPONSE" | jq --raw-output ".web_url"
