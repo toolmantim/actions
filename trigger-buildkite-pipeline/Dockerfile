@@ -10,7 +10,7 @@ LABEL com.github.actions.description="Triggers a Buildkite pipeline for the give
 LABEL com.github.actions.icon="zap"
 LABEL com.github.actions.color="blue"
 
-RUN apk update && apk add bash curl jq
+RUN apk add --no-cache bash curl jq
 
 ADD . /src/
 
