@@ -49,4 +49,4 @@ RESPONSE=$(
 )
 
 echo "Created build:"
-echo "$RESPONSE" | jq ".web_url"
+echo "$RESPONSE" | jq --raw-output ".web_url"
