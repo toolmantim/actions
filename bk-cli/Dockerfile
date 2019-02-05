@@ -10,7 +10,7 @@ LABEL com.github.actions.description="Proof of concept wrapper for the Buildkite
 LABEL com.github.actions.icon="zap"
 LABEL com.github.actions.color="blue"
 
-ADD https://github.com/buildkite/cli/releases/download/v0.2.0/bk-linux-amd64-0.2.0 /usr/bin/bk
+ADD https://github.com/buildkite/cli/releases/download/v0.3.0/bk-linux-amd64-0.3.0 /usr/bin/bk
 RUN chmod +x /usr/bin/bk
 
 ADD entrypoint.sh /entrypoint.sh
