@@ -15,7 +15,4 @@ RUN chmod +x /usr/bin/bk
 
 ADD entrypoint.sh /entrypoint.sh
 
-# Workaround https://github.com/buildkite/cli/issues/19
-ENV BUILDKITE_PLUGINS_PATH=/tmp/bk-plugins
-
 ENTRYPOINT ["/entrypoint.sh"]
