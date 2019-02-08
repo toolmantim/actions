@@ -1,4 +1,4 @@
-# Buildkite Pipeline Settings Sync GitHub Action
+# Buildkite Pipeline Sync GitHub Action
 
 A GitHub Action for storing your Buildkite pipeline settings in your source code, and having them automatically synchronised on `git push` via the [Buildkite Pipelines API](https://buildkite.com/docs/apis/rest-api/pipelines).
 
@@ -51,7 +51,7 @@ workflow "Sync Buildkite Settings" {
 }
 
 action "Sync Settings" {
-  uses = "toolmantim/actions/pipeline-settings-sync@master"
+  uses = "toolmantim/actions/pipeline-sync@master"
   secrets = ["BUILDKITE_API_TOKEN"]
   # Nothing else to configure
 }
