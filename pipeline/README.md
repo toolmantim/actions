@@ -10,6 +10,26 @@ Features:
 
 ## Usage
 
+Triggering a build for every push:
+
+```workflow
+workflow "Buildkite Build" {
+  on = "push"
+  resolves = ["Create Buildkite Build"]
+}
+
+action "Create Buildkite Build" {
+  uses = "toolmantim/actions/pipeline@master"
+  secrets = ["BUILDKITE_API_ACCESS_TOKEN"]
+  env = {
+    PIPELINE = "my-org/my-pipeline"
+    # Pass through commit, branch, message and author
+  }
+}
+```
+
+Trigger a deploy build for pushes to the master branch:
+
 ```workflow
 workflow "Deploy to Buildkite" {
   on = "push"
@@ -31,6 +51,7 @@ action "Trigger Buildkite Deploy" {
     BRANCH = "master"
     MESSAGE = ":github: Deployed from a GitHub Action"
   }
+}
 ```
 
 ## TODO
